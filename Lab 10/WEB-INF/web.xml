@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app>
+	<servlet>
+		<servlet-name>welcomeServlet</servlet-name>
+		<servlet-class>welcomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>welcomeServlet</servlet-name>
+		<url-pattern>/GreetingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DateTimeServlet</servlet-name>
+		<servlet-class>DateTimeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DateTimeServlet</servlet-name>
+		<url-pattern>/DateTimeServlet</url-pattern>
+	</servlet-mapping>
+</web-app>

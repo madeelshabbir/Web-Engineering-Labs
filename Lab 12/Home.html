@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+	<link rel="stylesheet" type="text/css" href="./Style.css" />
+  </head>
+  <body>
+	<form style="font-family: Helvetica Neue,Helvetica,Arial;">
+			<h1 align="center">Address Book</h1>
+			<div align="center">
+				<button style="background: #ff5353">Insert Mobile</button>
+				<button style="background: #2ec4b6">Search Mobile</button>
+				<button style="background: #8fc93a">Mobile Info</button>
+				<button style="background: #e4cc37">Exit</button>
+			</div>
+	</form>
+	<script>
+		btn = document.querySelectorAll("button");
+		btn[0].addEventListener("click",function(){
+			document.querySelector("form").setAttribute("action", "insertMobile.html");
+		});
+		btn[1].addEventListener("click",function(){
+			document.querySelector("form").setAttribute("action", "searchMobile.html");
+		});
+		btn[2].addEventListener("click",function(){
+			document.querySelector("form").setAttribute("action", "mobileInfoServlet");
+		});
+		btn[3].addEventListener("click",function(){
+			document.querySelector("body").innerHTML = "<h1 align=center>Bye Bye...</h1>" ;
+		});
+	</script>
+  </body>
+</html>

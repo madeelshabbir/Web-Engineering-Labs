@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 2</title>
+	<link rel="stylesheet" type="text/css" href="./Style.css" />
+  </head>
+  <body>
+	<form style="font-family: Helvetica Neue,Helvetica,Arial;">
+			<h1 align="center">Calculator</h1>
+			<div align="center">
+				<button style="background: #ff5353">Sum</button>
+				<button style="background: #2ec4b6">Subtraction</button>
+				<button style="background: #8fc93a">Multiply</button>
+				<button style="background: #e4cc37">Division</button>
+			</div>
+	</form>
+	<script type="text/javascript">
+		var btn = document.querySelectorAll("button");
+		var num1 = 0;
+		var num2 = 0;
+		function takeInput(){
+			num1 = parseInt(prompt("Enter 1st Number: "));
+			num2 = parseInt(prompt("Enter 2nd Number: "));
+		}
+		btn[0].addEventListener("click",function(){
+			takeInput();
+			alert(num1+num2);
+		});
+		btn[1].addEventListener("click",function(){
+			takeInput();
+			alert(num1-num2);
+		});
+		btn[2].addEventListener("click",function(){
+			takeInput();
+			alert(num1*num2);
+		});
+		btn[3].addEventListener("click",function(){
+			takeInput();
+			if(num2 == 0)
+				alert("Undefined");
+			else
+				alert(num1/num2);
+		});
+	</script>
+  </body>
+</html>

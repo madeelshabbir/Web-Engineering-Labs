@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delete Address</title>
+	<link rel="stylesheet" type="text/css" href="./Style.css" />
+  </head>
+  <body>
+	<form action="DeleteServlet" style="font-family: Helvetica Neue,Helvetica,Arial;">
+			<h1 align="center">Delete Address</h1>
+			<div>
+				<input class="single" type="text" placeholder="Name" name="name" />
+				<span></span>
+			</div>
+			<div align="center">
+				<input id="btn" type="submit" value="Delete" />
+			</div>
+	</form>
+	<script type="text/javascript">
+		document.querySelector("form").addEventListener("submit", function(event){
+			if(document.querySelector("input").value.length === 0){
+				document.querySelector("span").textContent = "Missing";
+				event.preventDefault();
+			}
+			else
+				document.querySelector("span").textContent = "";
+		});
+	</script>
+  </body>
+</html>

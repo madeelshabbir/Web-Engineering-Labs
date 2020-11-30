@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insert Mobile</title>
+	<link rel="stylesheet" type="text/css" href="./Style.css" />
+  </head>
+  <body>
+	<form action="insertMobileServlet" style="font-family: Helvetica Neue,Helvetica,Arial;">
+			<h1 align="center">Insert Mobile</h1>
+			<div>
+				<input class="single" type="text" placeholder="Company Name" name="companyName" />
+				<span></span>
+			</div>
+			<div>
+				<input class="single" type="text" placeholder="Model" align="center" name="model" />
+				<span></span>
+			</div>
+			<div>
+				<input id="num" class="single" type="text" placeholder="Price" align="center" name="price" />
+				<span></span>
+			</div>
+			<div align="center">
+				<input id="btn" type="submit" value="Continue" />
+			</div>
+	</form>
+	<script type="text/javascript">
+		var msg = document.querySelectorAll("span");
+		var inp = document.querySelectorAll("input");
+		document.querySelector("form").addEventListener("submit", function(event){
+			var count = 0;
+			for(var i = 0; i<3; i++){
+				if(inp[i].value.length === 0)
+					msg[i].textContent = "Missing";
+				else{
+					var ind = 0;
+					msg[i].textContent = "";
+					while(i === 2 && ind < inp[i].value.length){
+						if(("0123456789").indexOf(inp[i].value.charAt(ind)) === -1){
+								msg[i].textContent = "Digits Only";
+								count--;
+								break;
+						}
+						ind++;
+					}
+					count++;
+				}
+			}
+			if(count !== 3)
+				event.preventDefault();
+		});		
+	</script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 1</title>
+	<link rel="stylesheet" type="text/css" href="./Style.css" />
+  </head>
+  <body>
+	<form style="font-family: Helvetica Neue,Helvetica,Arial;">
+			<h1 onclick="return btnClk()" align="center">Sign up</h1>
+			<div>
+				<input class="single" type="text" placeholder="Full Name" />
+				<span></span>
+			</div>
+			<div>
+				<input id="eml" class="single" type="email" placeholder="Email Address" align="center" />
+				<span></span>
+			</div>
+			<div>
+				<input id="ps" class="single" type="password" placeholder="Password" align="center" />
+				<span></span>
+			</div>
+			<div>
+				<input id="cps" class="single" type="password" placeholder="Confirm Password" align="center" />
+				<span></span>
+			</div>
+			<div align="center">
+				<input id="btn" type="button" value="Continue" />
+			</div>
+	</form>
+	<script type="text/javascript">
+		var msg = document.querySelectorAll("span");
+		var inp = document.querySelectorAll("input");
+		document.querySelector("#btn").addEventListener("click",function(){
+				var eTxt = document.querySelector("#eml").value;
+				var atLoc = (eTxt).indexOf('@');
+				var dotLoc = (eTxt).indexOf('.',atLoc);
+				var count = 0;
+				for(var i = 0; i<4; i++){
+					if(inp[i].value !== ""){
+						if(i === 1)
+							if(atLoc > 0 && atLoc + 1 < dotLoc && dotLoc+1 < eTxt.length){
+								count++;
+								msg[i].textContent = "";
+							}
+							else
+								msg[i].textContent = "Invalid Email";
+						else if(i === 2)
+							if(document.querySelector("#ps").value.length > 7){
+								msg[i].textContent = "";
+								count++;
+							}
+							else
+								msg[i].textContent = "Weak Password";
+						else if(i === 3)
+							if(document.querySelector("#ps").value === document.querySelector("#cps").value){
+								msg[i].textContent = "";
+								count++;
+							}
+							else
+								msg[i].textContent = "Password Mismatch";
+						else{
+							count++;
+							msg[i].textContent = "";
+						}
+					}
+					else{
+						msg[i].textContent = "Missing";
+					}
+				}
+				if(count == 4){
+					alert("Congrulation, You are successfully signed up!");
+				}
+		});
+	</script>
+  </body>
+</html>

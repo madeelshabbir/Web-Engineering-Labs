@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Mobile</title>
+	<link rel="stylesheet" type="text/css" href="./Style.css" />
+  </head>
+  <body>
+	<form action="searchMobileServlet" style="font-family: Helvetica Neue,Helvetica,Arial;">
+			<h1 align="center">Search Mobile</h1>
+			<div>
+				<input class="single" type="text" placeholder="Company Name" name="companyName" />
+				<span></span>
+			</div>
+			<div>
+				<input class="single" type="text" placeholder="Model" align="center" name="model" />
+				<span></span>
+			</div>
+			<div align="center">
+				<input id="btn" type="submit" value="Search" />
+			</div>
+	</form>
+	<script type="text/javascript">
+		var msg = document.querySelectorAll("span");
+		var inp = document.querySelectorAll("input");
+		document.querySelector("form").addEventListener("submit", function(event){
+			var count = 2;
+			for(var i = 0; i<2; i++){
+				if(inp[i].value.length === 0){
+					msg[i].textContent = "Missing";
+					count++;
+				}
+			}
+			if(count !== 2)
+				event.preventDefault();
+	</script>
+  </body>
+</html>
